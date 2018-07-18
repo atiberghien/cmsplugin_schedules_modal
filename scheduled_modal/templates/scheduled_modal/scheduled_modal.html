@@ -1,0 +1,26 @@
+{% load sekizai_tags %}
+
+<div id="announcementModal" class="modal">
+    <div class="modal-content">
+            {% for announcement in announcements %}
+            <h3>Valade du {{announcement.begin_date}} au {{announcement.end_date}}</h3>
+            {{announcement.text|safe}}
+            <hr>
+            {% endfor %}
+    </div>
+</div>
+
+{% addtoblock 'css'%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+{% endaddtoblock %}
+
+{% addtoblock 'js'%}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<script>
+    $(document).ready(function(){
+        {% if announcements.count %}
+        $("#announcementModal").modal("show")
+        {% endif %}
+    });
+</script>
+{% endaddtoblock %}
