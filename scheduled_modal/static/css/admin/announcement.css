@@ -1,0 +1,16 @@
+div.form-row.field-begin_date.field-end_date.field-show_period {
+    display: flex;
+    align-items: flex-end;
+}
+
+div.field-box.field-begin_date, div.field-box.field-end_date {
+    width: 40%;
+}
+
+.django-ckeditor-widget, #cke_id_text {
+    width: 100%!important;
+}
+
+.field-label input[id^=id_announcementattachment] {
+    width: 100% !important;
+}

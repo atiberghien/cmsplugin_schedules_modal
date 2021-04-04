@@ -5,6 +5,13 @@
             {% for announcement in announcements %}
             <h3>Valade du {{announcement.begin_date}} au {{announcement.end_date}}</h3>
             {{announcement.text|safe}}
+            {% for attachment in announcement.attachments.all %}
+                <p>
+                  <a href="{{attachment.file.url}}" target="_blank">
+                      <strong>{{attachment.label}}</strong>
+                  </a>
+                </p>
+            {% endfor %}
             <hr>
             {% endfor %}
     </div>
@@ -12,7 +19,7 @@
 
 {% addtoblock 'css'%}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-{% endaddtoblock %}
+{% endcompress %}{% endaddtoblock %}
 
 {% addtoblock 'js'%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -23,4 +30,4 @@
         {% endif %}
     });
 </script>
-{% endaddtoblock %}
+{% endcompress %}{% endaddtoblock %}

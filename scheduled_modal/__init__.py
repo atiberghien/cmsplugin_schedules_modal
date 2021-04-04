@@ -1,0 +1,1 @@
+default_app_config = 'scheduled_modal.apps.ScheduledModalConfig'
